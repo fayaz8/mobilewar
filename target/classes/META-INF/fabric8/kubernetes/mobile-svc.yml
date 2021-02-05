@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    fabric8.io/git-commit: 5cd438cb8a91e0b17b5a91821b94f03e3ef01974
+    fabric8.io/git-branch: master
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9779"
+  labels:
+    expose: "true"
+    provider: fabric8
+    project: mobile
+    version: 1.0-SNAPSHOT
+    group: amazon
+  name: mobile
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    project: mobile
+    provider: fabric8
+    group: amazon
